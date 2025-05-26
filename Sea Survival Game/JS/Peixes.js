@@ -13,10 +13,11 @@ class Peixe extends Phaser.Physics.Arcade.Sprite{
     }
 
     Update(){
+        console.log("EEWE");
+
     }
 
     Behaviour(){
-        console.log("EEWE");
 
     }
 

@@ -1,5 +1,6 @@
 
-class mainScene{
+
+class mainScene extends Phaser.Scene{
 
     //Like the awake in unty, it plays before the create (start) method
     preload() {
@@ -27,6 +28,7 @@ class mainScene{
 
     update() {
 
+       
         
         if (this.arrow.right.isDown) {
             this.player.x += 3; //Move para a direita
