@@ -1,12 +1,15 @@
-class mainScene {
+
+class mainScene{
 
     //Like the awake in unty, it plays before the create (start) method
     preload() {
         //Uses to load assets
         this.load.image('player', 'assets/peixe-lanterna.jpg')
+        this.load.image('peixe', 'assets/peixe-lanterna.jpg')
     }
 
     create() {
+
         this.player = this.physics.add.sprite(500, 500, 'player');
 
         //Pontuação
@@ -18,18 +21,11 @@ class mainScene {
         this.arrow = this.input.keyboard.createCursorKeys();
         this.leftKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A)
 
-
+        //Peixes
+        const peixe = this.physics.add.sprite(20, 20, 'peixe');
     }
 
     update() {
-
-        //Movimentação horizontal
-        /*
-        if(this.leftKey.isDown){
-            //this.player.x -= 3; //Move para a esquerda
-            console.log('A');
-        }
-        */
 
         
         if (this.arrow.right.isDown) {
@@ -44,10 +40,11 @@ class mainScene {
         } else if (this.arrow.up.isDown) {
             this.player.y -= 3; //Move para cima
         }
-        
+
     }
 
 }
+
 
 new Phaser.Game({
     width: 700,
