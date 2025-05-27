@@ -1,4 +1,4 @@
-
+import { Peixe } from "../Peixe";
 
 class mainScene extends Phaser.Scene{
 
@@ -7,6 +7,7 @@ class mainScene extends Phaser.Scene{
         //Uses to load assets
         this.load.image('player', 'assets/peixe-lanterna.jpg')
         this.load.image('peixe', 'assets/peixe-lanterna.jpg')
+        
     }
 
     create() {
@@ -23,13 +24,15 @@ class mainScene extends Phaser.Scene{
         this.leftKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A)
 
         //Peixes
-        const peixe = this.physics.add.sprite(20, 20, 'peixe');
+        //this.peixe = this.physics.add.sprite(20, 20, 'peixe');
+        this.peixe = new Peixe(1,1, this.player, 'peixe');
     }
 
     update() {
 
-       
-        
+        peixe.update();
+        //console.log("EEWE");
+
         if (this.arrow.right.isDown) {
             this.player.x += 3; //Move para a direita
         } else if (this.arrow.left.isDown) {
