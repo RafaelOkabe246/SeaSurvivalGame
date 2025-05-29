@@ -23,7 +23,7 @@ class mainScene extends Phaser.Scene{
 
         //Peixes
         //this.peixe = this.physics.add.sprite(20, 20, 'peixe');
-        this.peixe = new Peixe(1,1, this.player, 'peixe');
+       // this.peixe = new Peixe(1,1, this.player, 'peixe');
     }
 
     update() {
