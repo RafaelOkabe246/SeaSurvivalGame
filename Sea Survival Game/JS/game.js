@@ -1,5 +1,3 @@
-import { Peixe } from "../Peixe";
-
 class mainScene extends Phaser.Scene{
 
     //Like the awake in unty, it plays before the create (start) method
@@ -59,3 +57,5 @@ new Phaser.Game({
     physics: { default: 'arcade' },
     parent: 'game',
 });
+
+

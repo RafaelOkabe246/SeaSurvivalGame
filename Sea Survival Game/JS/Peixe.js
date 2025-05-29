@@ -1,6 +1,6 @@
-import { Phaser } from "../phaser";
+//import { Phaser } from "../phaser";
 
-export default class Peixe extends Phaser.Physics.Arcade.Sprite{
+class Peixe extends Phaser.Physics.Arcade.Sprite{
 
     constructor(_HP, _speed, _player){
         this.HP = _HP;
