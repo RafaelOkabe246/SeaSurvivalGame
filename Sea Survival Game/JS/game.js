@@ -10,7 +10,7 @@ export class mainScene extends Phaser.Scene{
     //Like the awake in unty, it plays before the create (start) method
     preload() {
         //Uses to load assets
-        this.load.image('player', 'assets/peixe-lanterna.jpg')
+        this.load.image('player', 'assets/Sprites peixes - SereioFrente.gif')
         this.load.image('peixe', 'assets/peixe-lanterna.jpg')
         
     }

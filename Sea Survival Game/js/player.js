@@ -13,7 +13,7 @@ export default class Player extends Phaser.GameObjects.Container{
         this.add([this.#playerSprite]);
 
 
-        this.#keyboardInputComponent = new this.#keyboardInputComponent(scene);
+        this.#keyboardInputComponent = new KeyboardInputComponent(this.scene);
        
         //Event listener
         this.scene.events.on(Phaser.Scenes.Events.UPDATE, this.update, this);

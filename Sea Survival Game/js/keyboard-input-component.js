@@ -1,6 +1,6 @@
-import { InputComponent } from "./InputComponent";
+import { InputComponent } from "./InputComponent.js";
 
-export class KeyboardInptComponent extends InputComponent {
+export class KeyboardInputComponent extends InputComponent {
     #cursorKeys;
 
     #inputLocked;
