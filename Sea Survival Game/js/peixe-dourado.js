@@ -3,9 +3,8 @@ import { ColliderComponent } from "./collider-component.js";
 import { PeixeInputComponent } from "./peixe-input-component.js";
 import { VerticalMovementComponent } from "./vertical-movement-component.js";
 
-export class Peixe extends Phaser.GameObjects.Container {
+export class PeixeDourado extends Phaser.GameObjects.Container{
 
-    #scene;
     #peixeSprite;
 
     #verticalMovementComponent;
@@ -13,12 +12,11 @@ export class Peixe extends Phaser.GameObjects.Container {
 
     #inputComponent;
 
-    #healthComponent;
+        #healthComponent;
     #colliderComponent;
 
     constructor(scene, x, y) {
-        super(scene, x, y, []);
-        this.#scene = scene;
+        super(scene,  x, y, []);
 
         this.scene.add.existing(this);
         this.scene.physics.add.existing(this);
@@ -26,15 +24,17 @@ export class Peixe extends Phaser.GameObjects.Container {
         this.body.setOffset(-12, -12);
 
 
-        this.#peixeSprite = scene.physics.add.sprite(0, 0, 'peixe');
+        this.#peixeSprite = scene.physics.add.sprite(0, 0, 'peixe-dourado');
         this.add([this.#peixeSprite]);
 
 
         this.#inputComponent = new PeixeInputComponent();
         this.#verticalMovementComponent = new VerticalMovementComponent(this, this.#inputComponent);
 
-        this.#healthComponent = new HealthComponent(1);
+        this.#healthComponent = new HealthComponent(3);
         this.#colliderComponent = new ColliderComponent(this.#healthComponent);
+
+
 
         //Event listener
         this.scene.events.on(Phaser.Scenes.Events.UPDATE, this.update, this);
@@ -45,13 +45,13 @@ export class Peixe extends Phaser.GameObjects.Container {
                 this.scene.events.off(Phaser.Scenes.Events.UPDATE, this.update, this);
             }, this);
     }
+
     get colliderComponent(){
         return this.#colliderComponent;
     }
     get healthComponent(){
         return this.#healthComponent;
     }
-
 
     update(timeStamp, deltaTime) {
         if(this.#healthComponent.isDead){
@@ -68,7 +68,6 @@ export class Peixe extends Phaser.GameObjects.Container {
             this.setActive(true);
             this.setVisible(true);
             this.#healthComponent.reset();
-            this.#scene.addPoints(2);
         }
     }
 
